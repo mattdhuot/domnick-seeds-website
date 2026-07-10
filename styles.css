@@ -704,6 +704,13 @@ h3 {
   border-radius: 8px;
 }
 
+.services-grid img.service-logo {
+  object-fit: contain;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
 .offering-list-section {
   padding-top: 0;
 }
