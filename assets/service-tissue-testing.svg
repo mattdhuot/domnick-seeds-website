@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" role="img" aria-labelledby="title desc">
+  <title id="title">Tissue testing illustration</title>
+  <desc id="desc">Corn leaves, a sample envelope, and lab test markings in a clean agricultural illustration.</desc>
+  <rect width="900" height="540" fill="#edf3e5"/>
+  <path d="M116 540c31-128 66-223 105-286 38-63 89-111 153-144-9 88-38 172-88 252-50 81-107 140-170 178z" fill="#2f7a3f"/>
+  <path d="M236 540c16-122 50-224 101-306 51-83 121-146 211-190-8 107-44 207-109 300-65 94-132 159-203 196z" fill="#3f9a4e"/>
+  <path d="M371 540c8-96 39-181 92-255 53-73 126-127 219-162-20 90-58 172-114 247-57 75-122 132-197 170z" fill="#2f7a3f"/>
+  <path d="M485 540c14-86 44-158 91-216 47-59 107-101 180-127-7 76-35 146-84 209-48 64-111 108-187 134z" fill="#56aa5b"/>
+  <path d="M210 502c80-108 161-217 243-328M355 516c80-112 159-220 237-324M508 515c50-73 101-146 153-219" fill="none" stroke="#d5e9c8" stroke-width="9" stroke-linecap="round"/>
+  <path d="M582 102h185c16 0 29 13 29 29v260c0 16-13 29-29 29H582c-16 0-29-13-29-29V131c0-16 13-29 29-29z" fill="#fff7dc" stroke="#d7b56d" stroke-width="8"/>
+  <path d="M553 172h243" stroke="#f2c84b" stroke-width="22"/>
+  <text x="675" y="156" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#2f5d38">TISSUE</text>
+  <text x="675" y="217" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#2f5d38">TEST</text>
+  <path d="M612 270h124M612 314h124M612 358h78" stroke="#8e9a91" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="734" cy="358" r="17" fill="#2f5d38"/>
+  <path d="M262 157c42 24 71 56 87 96" fill="none" stroke="#cfa36b" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="246" cy="146" r="34" fill="#d3a06a"/>
+</svg>
