@@ -28,7 +28,7 @@
         <a href="products.html#services">Service</a>
         <a href="products.html">Catalog</a>
         <a href="index.html#contact">Contact Us</a>
-        <a href="index.html#hybrid-picker">Hybrid Picker</a>
+        <a href="index.html#hybrid-catalog">Hybrid Catalog</a>
       </nav>
       <a class="header-cta" href="#contact">Contact Us</a>
       <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
@@ -191,22 +191,49 @@
         </div>
       </section>
 
-      <section class="section hybrid-picker-section" id="hybrid-picker">
+      <section class="section hybrid-catalog-section" id="hybrid-catalog">
         <div class="section-heading compact">
-          <p class="eyebrow">Hybrid picker</p>
-          <h2>Match the field first. Then choose the hybrid.</h2>
+          <p class="eyebrow">Hybrid catalog</p>
+          <h2>Browse DEKALB hybrids by maturity, platform, and field fit.</h2>
           <p>
-            Use 2027 DEKALB MN North placement, trait, and fungicide response
-            notes to narrow hybrid options by field condition. Final placement
-            should be confirmed with local availability and your Domnick Seeds contact.
+            Use the same hybrid set from the placement tool in a simpler catalog format.
+            Bag art is matched to Bayer's DEKALB catalog imagery where available.
           </p>
         </div>
 
-        <div class="picker-shell">
-          <form class="picker-form" id="hybridPickerForm">
+        <div class="catalog-shell">
+          <form class="catalog-filters" id="hybridCatalogFilters">
             <label>
-              Field scenario
-              <select name="scenario">
+              Search hybrid
+              <input name="search" type="search" placeholder="DKC097-37, drydown, Trecepta" />
+            </label>
+
+            <label>
+              Maturity window
+              <select name="maturity">
+                <option value="focus">85-106 day focus</option>
+                <option value="all">All listed hybrids</option>
+                <option value="early">Early 84-91 day</option>
+                <option value="mid">Mid 92-99 day</option>
+                <option value="full">Full 100-106 day</option>
+                <option value="extended">Extended 107+ day</option>
+              </select>
+            </label>
+
+            <label>
+              Trait platform
+              <select name="trait">
+                <option value="all">All platforms</option>
+                <option value="smartstax">SmartStaxPRO / VT4PRO / SS</option>
+                <option value="vt2">VT2PRO / Trecepta</option>
+                <option value="other">Conventional / RR2</option>
+              </select>
+            </label>
+
+            <label>
+              Placement fit
+              <select name="placement">
+                <option value="all">All placements</option>
                 <option value="productive">Highly productive soils</option>
                 <option value="corn-on-corn">Corn on corn</option>
                 <option value="early-planting">Early planting</option>
@@ -215,96 +242,18 @@
                 <option value="sugarbeets">Following sugarbeets</option>
               </select>
             </label>
-
-            <label>
-              Maturity window
-              <select name="maturity">
-                <option value="balanced">Flexible 92-102 day range</option>
-                <option value="early">Earlier 85-91 day harvest</option>
-                <option value="mid">Mid 92-97 day fit</option>
-                <option value="late">Fuller 103+ day season</option>
-              </select>
-            </label>
-
-            <label>
-              Trait platform
-              <select name="trait">
-                <option value="any">Any available platform</option>
-                <option value="smartstax">SmartStaxPRO / VT4PRO / SS</option>
-                <option value="vt2">VT2PRO / Trecepta</option>
-              </select>
-            </label>
-
-            <label>
-              Soil and field type
-              <select name="soil">
-                <option value="variable">Variable soils across the field</option>
-                <option value="light">Light or drought-prone ground</option>
-                <option value="heavy">Heavy, wet, or slower-draining ground</option>
-                <option value="productive">Highly productive, well-managed acre</option>
-              </select>
-            </label>
-
-            <label>
-              Yield environment
-              <select name="yield">
-                <option value="balanced">Balanced yield and agronomics</option>
-                <option value="stress">Stress-prone acre</option>
-                <option value="high">High-yield management</option>
-                <option value="silage">Silage or feed-focused acre</option>
-              </select>
-            </label>
-
-            <label>
-              Rotation
-              <select name="rotation">
-                <option value="corn-soy">Corn after soybeans</option>
-                <option value="corn-corn">Corn-on-corn</option>
-                <option value="sugarbeets">Following sugarbeets</option>
-                <option value="irrigated">Irrigated rotation or irrigated field</option>
-              </select>
-            </label>
-
-            <label>
-              Main priority
-              <select name="priority">
-                <option value="standability">Standability and harvest security</option>
-                <option value="drydown">Drydown and early harvest</option>
-                <option value="top-yield">Top-end yield</option>
-                <option value="disease">Disease and plant health</option>
-                <option value="silage">Tonnage and feed value</option>
-              </select>
-            </label>
-
-            <label>
-              Disease or stress concern
-              <select name="risk">
-                <option value="none">No major concern</option>
-                <option value="drought">Dry weather or lighter soils</option>
-                <option value="wet">Wet feet or compaction risk</option>
-                <option value="disease">Disease history or fungicide decision</option>
-                <option value="root-stalk">Root and stalk strength</option>
-              </select>
-            </label>
-
-            <button class="button primary" type="submit">Pick Hybrid Fit</button>
           </form>
 
-          <div class="picker-results" aria-live="polite">
-            <div class="result-lead">
-              <span>Recommended fit</span>
-              <h3 id="pickerTopName">Balanced 92-102 day workhorse</h3>
-              <p id="pickerTopReason">
-                Start with a flexible hybrid that can handle changing soils while
-                keeping yield and agronomics in balance.
-              </p>
+          <div class="catalog-results" aria-live="polite">
+            <div class="catalog-status">
+              <span id="hybridCatalogCount">Loading hybrids</span>
             </div>
-            <div class="result-list" id="pickerResultList"></div>
-            <div class="picker-note">
+            <div class="hybrid-catalog-grid" id="hybridCatalogGrid"></div>
+            <div class="catalog-note">
               <strong>Source note:</strong>
               Built from the 2027 DEKALB MN placement, characteristics, and
-              fungicide response screenshots. Use this as a recommendation aid,
-              then confirm final seed placement locally.
+              fungicide response screenshots plus Bayer's public DEKALB catalog
+              bag imagery. Confirm final seed placement and availability locally.
             </div>
           </div>
         </div>

@@ -47,6 +47,68 @@ const catalogNotes = {
   "DKC111-61": "Bayer catalog: yield potential, attractive appearance, excellent roots, very good stalk strength, fungicide response, and medium-to-high population fit.",
 };
 
+const bagImages = {
+  vt2pro: "assets/dekalb-bag-vt2pro.webp",
+  trecepta: "assets/dekalb-bag-trecepta.webp",
+  vt4pro: "assets/dekalb-bag-vt4pro.webp",
+  smartstaxpro: "assets/dekalb-bag-smartstaxpro.webp",
+  smartstax: "assets/dekalb-bag-smartstax.webp",
+  fieldcorn: "assets/dekalb-bag-fieldcorn.webp",
+  fallback: "assets/dkc097-37.webp",
+};
+
+const bayerBagByHybrid = {
+  "DKC084-15": bagImages.vt2pro,
+  "DKC086-66": bagImages.trecepta,
+  "DKC087-97": bagImages.trecepta,
+  "DKC088-39": bagImages.vt4pro,
+  "DKC091-43": bagImages.vt4pro,
+  "DKC091-44": bagImages.trecepta,
+  "DKC092-13": bagImages.smartstaxpro,
+  "DKC092-14": bagImages.vt4pro,
+  "DKC094-51": bagImages.smartstaxpro,
+  "DKC094-67": bagImages.vt4pro,
+  "DKC094-78": bagImages.trecepta,
+  "DKC095-57": bagImages.vt4pro,
+  "DKC096-21": bagImages.trecepta,
+  "DKC096-96": bagImages.vt4pro,
+  "DKC096-97": bagImages.trecepta,
+  "DKC097-37": bagImages.smartstaxpro,
+  "DKC097-51": bagImages.trecepta,
+  "DKC098-86": bagImages.fieldcorn,
+  "DKC098-88": bagImages.vt4pro,
+  "DKC098-98": bagImages.smartstaxpro,
+  "DKC099-11": bagImages.vt2pro,
+  "DKC099-59": bagImages.smartstaxpro,
+  "DKC100-21": bagImages.vt2pro,
+  "DKC100-53": bagImages.smartstaxpro,
+  "DKC100-70": bagImages.trecepta,
+  "DKC101-33": bagImages.smartstaxpro,
+  "DKC101-35": bagImages.vt2pro,
+  "DKC102-13": bagImages.vt4pro,
+  "DKC102-18": bagImages.smartstaxpro,
+  "DKC102-28": bagImages.trecepta,
+  "DKC103-63": bagImages.smartstaxpro,
+  "DKC104-08": bagImages.vt4pro,
+  "DKC104-14": bagImages.smartstaxpro,
+  "DKC104-32": bagImages.vt2pro,
+  "DKC105-21": bagImages.vt4pro,
+  "DKC106-98": bagImages.vt4pro,
+  "DKC107-11": bagImages.smartstaxpro,
+  "DKC107-69": bagImages.trecepta,
+  "DKC108-64": bagImages.smartstaxpro,
+  "DKC108-87": bagImages.smartstaxpro,
+  "DKC109-71": bagImages.smartstaxpro,
+  "DKC110-10": bagImages.smartstax,
+  "DKC110-15": bagImages.smartstaxpro,
+  "DKC110-82": bagImages.vt2pro,
+  "DKC111-61": bagImages.vt4pro,
+  "DKC111-62": bagImages.trecepta,
+  "DKC112-03": bagImages.smartstaxpro,
+  "DKC112-19": bagImages.vt4pro,
+  "DKC112-35": bagImages.smartstaxpro,
+};
+
 function hybrid({
   name,
   rm,
@@ -70,7 +132,7 @@ function hybrid({
     strengths: strengths || [placements.includes("productive") ? "productive soil fit" : "supporting placement", `${rm} RM option`],
     watch: watch || `${rm} RM product visible in the uploaded DEKALB placement, characteristics, or fungicide charts; confirm local ratings and availability before final placement.`,
     catalogNote: catalogNotes[name] || "",
-    image,
+    image: bayerBagByHybrid[name] || image || bagImages.fallback,
   };
 }
 
@@ -250,101 +312,90 @@ const scenarioLabels = {
   sugarbeets: "following sugarbeets",
 };
 
-const pickerForm = document.querySelector("#hybridPickerForm");
-const pickerTopName = document.querySelector("#pickerTopName");
-const pickerTopReason = document.querySelector("#pickerTopReason");
-const pickerResultList = document.querySelector("#pickerResultList");
+const catalogForm = document.querySelector("#hybridCatalogFilters");
+const catalogGrid = document.querySelector("#hybridCatalogGrid");
+const catalogCount = document.querySelector("#hybridCatalogCount");
 
-function maturityScore(hybrid, maturity) {
-  if (maturity === "early") return hybrid.rm <= 91 ? 5 : hybrid.rm <= 97 ? 2 : -3;
-  if (maturity === "mid") return hybrid.rm >= 92 && hybrid.rm <= 97 ? 5 : hybrid.rm <= 102 ? 2 : -1;
-  if (maturity === "late") return hybrid.rm >= 103 && hybrid.rm <= 106 ? 5 : hybrid.rm >= 100 ? 2 : -2;
-  return hybrid.rm >= 92 && hybrid.rm <= 102 ? 3 : 1;
-}
-
-function fieldConditionScore(hybrid, answers) {
-  let score = 0;
-  if (hybrid.placements.includes(answers.scenario)) score += 8;
-  if (answers.trait !== "any" && hybrid.traitGroup === answers.trait) score += 4;
-  if (answers.trait !== "any" && hybrid.traitGroup !== answers.trait) score -= 4;
-  if (answers.soil === "light" && hybrid.placements.includes("variable-drought")) score += 3;
-  if (answers.soil === "heavy" && hybrid.placements.includes("corn-on-corn")) score += 1;
-  if (answers.soil === "productive" && hybrid.placements.includes("productive")) score += 3;
-  if (answers.soil === "variable" && hybrid.placements.includes("variable-drought")) score += 3;
-  if (answers.yield === "high" && hybrid.placements.includes("productive")) score += 3;
-  if (answers.yield === "stress" && hybrid.placements.includes("variable-drought")) score += 3;
-  if (answers.rotation === "corn-corn" && hybrid.placements.includes("corn-on-corn")) score += 4;
-  if (answers.rotation === "sugarbeets" && hybrid.placements.includes("sugarbeets")) score += 4;
-  if (answers.rotation === "irrigated" && hybrid.placements.includes("irrigated")) score += 4;
-  if (answers.priority === "drydown" && hybrid.rm <= 97) score += 2;
-  if (answers.priority === "top-yield" && hybrid.placements.includes("productive")) score += 2;
-  if (answers.priority === "disease" && ["HIGH", "MOD"].includes(hybrid.fungicide)) score += hybrid.fungicide === "HIGH" ? 3 : 1;
-  if (answers.priority === "standability" && hybrid.placements.includes("corn-on-corn")) score += 1;
-  if (answers.risk === "drought" && hybrid.placements.includes("variable-drought")) score += 3;
-  if (answers.risk === "disease" && hybrid.fungicide === "HIGH") score += 3;
-  if (answers.risk === "root-stalk" && hybrid.placements.includes("corn-on-corn")) score += 2;
-  if (answers.risk === "wet" && hybrid.placements.includes("corn-on-corn")) score += 1;
-  return score;
-}
-
-function getPickerAnswers() {
-  const formData = new FormData(pickerForm);
+function getCatalogFilters() {
+  const formData = new FormData(catalogForm);
   return {
-    scenario: formData.get("scenario"),
+    search: String(formData.get("search") || "").trim().toLowerCase(),
     maturity: formData.get("maturity"),
     trait: formData.get("trait"),
-    soil: formData.get("soil"),
-    yield: formData.get("yield"),
-    rotation: formData.get("rotation"),
-    priority: formData.get("priority"),
-    risk: formData.get("risk"),
+    placement: formData.get("placement"),
   };
 }
 
-function rankHybrids(answers) {
-  return hybridProducts
-    .map((hybrid) => ({
-      ...hybrid,
-      score: fieldConditionScore(hybrid, answers) + maturityScore(hybrid, answers.maturity),
-    }))
-    .sort((a, b) => {
-      if (b.score !== a.score) return b.score - a.score;
-      if (Number(b.highlighted) !== Number(a.highlighted)) return Number(b.highlighted) - Number(a.highlighted);
-      return Math.abs(a.rm - 100) - Math.abs(b.rm - 100);
-    })
-    .slice(0, 4);
+function inMaturityWindow(hybrid, maturity) {
+  if (maturity === "focus") return hybrid.rm >= 85 && hybrid.rm <= 106;
+  if (maturity === "early") return hybrid.rm <= 91;
+  if (maturity === "mid") return hybrid.rm >= 92 && hybrid.rm <= 99;
+  if (maturity === "full") return hybrid.rm >= 100 && hybrid.rm <= 106;
+  if (maturity === "extended") return hybrid.rm > 106;
+  return true;
 }
 
-function renderPickerResults() {
-  const answers = getPickerAnswers();
-  const ranked = rankHybrids(answers);
-  const top = ranked[0];
-  const scenario = scenarioLabels[answers.scenario];
+function filterCatalog() {
+  const filters = getCatalogFilters();
+  return hybridProducts
+    .filter((hybrid) => {
+      const haystack = [hybrid.name, hybrid.rm, hybrid.trait, hybrid.catalogNote, hybrid.watch].join(" ").toLowerCase();
+      if (filters.search && !haystack.includes(filters.search)) return false;
+      if (!inMaturityWindow(hybrid, filters.maturity)) return false;
+      if (filters.trait !== "all" && hybrid.traitGroup !== filters.trait) return false;
+      if (filters.placement !== "all" && !hybrid.placements.includes(filters.placement)) return false;
+      return true;
+    })
+    .sort((a, b) => a.rm - b.rm || a.name.localeCompare(b.name));
+}
 
-  pickerTopName.textContent = top.name;
-  pickerTopReason.textContent = `${top.rm} RM ${top.trait}. Strongest match for ${scenario}: ${top.strengths.join(", ")}.`;
+function placementTags(hybrid) {
+  return hybrid.placements
+    .map((placement) => `<span>${scenarioLabels[placement]}</span>`)
+    .join("");
+}
 
-  pickerResultList.innerHTML = ranked
+function renderCatalog() {
+  const hybrids = filterCatalog();
+  catalogCount.textContent = `${hybrids.length} hybrids shown`;
+
+  if (!hybrids.length) {
+    catalogGrid.innerHTML = `
+      <article class="catalog-empty">
+        <h3>No hybrids match those filters.</h3>
+        <p>Clear a filter or search another DKC number to bring products back into view.</p>
+      </article>
+    `;
+    return;
+  }
+
+  catalogGrid.innerHTML = hybrids
     .map(
-      (hybrid, index) => `
-        <article class="picker-result-card">
-          ${
-            hybrid.image
-              ? `<img class="picker-product-image" src="${hybrid.image}" alt="${hybrid.name} DEKALB seed bag" />`
-              : ""
-          }
-          <div>
-            <span>${index === 0 ? "Best match" : "Alternate fit"}</span>
+      (hybrid) => `
+        <article class="hybrid-catalog-card">
+          <div class="hybrid-card-image">
+            <img src="${hybrid.image}" alt="${hybrid.name} DEKALB seed bag" loading="lazy" />
+          </div>
+          <div class="hybrid-card-topline">
+            <span>${hybrid.highlighted ? "Highlighted fit" : "Catalog hybrid"}</span>
             <strong>${hybrid.rm} RM</strong>
           </div>
           <h3>${hybrid.name}</h3>
-          <p>${hybrid.trait}</p>
-          <ul>
-            <li>Placement: ${hybrid.placements.map((placement) => scenarioLabels[placement]).join(", ")}</li>
-            <li>Fungicide response: ${hybrid.fungicide}</li>
-            <li>${hybrid.highlighted ? "Highlighted on placement sheet" : "Listed as a supporting option"}</li>
-            ${hybrid.catalogNote ? `<li>${hybrid.catalogNote}</li>` : ""}
-          </ul>
+          <p class="hybrid-platform">${hybrid.trait}</p>
+          <div class="hybrid-tags" aria-label="${hybrid.name} placement fits">
+            ${placementTags(hybrid)}
+          </div>
+          <dl class="hybrid-details">
+            <div>
+              <dt>Fungicide response</dt>
+              <dd>${hybrid.fungicide}</dd>
+            </div>
+            <div>
+              <dt>Key fit</dt>
+              <dd>${hybrid.strengths.slice(0, 3).join(", ")}</dd>
+            </div>
+          </dl>
+          ${hybrid.catalogNote ? `<p>${hybrid.catalogNote}</p>` : ""}
           <small>${hybrid.watch}</small>
         </article>
       `
@@ -352,15 +403,8 @@ function renderPickerResults() {
     .join("");
 }
 
-if (pickerForm) {
-  pickerForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    renderPickerResults();
-  });
-
-  pickerForm.querySelectorAll("select").forEach((select) => {
-    select.addEventListener("change", renderPickerResults);
-  });
-
-  renderPickerResults();
+if (catalogForm && catalogGrid) {
+  catalogForm.addEventListener("input", renderCatalog);
+  catalogForm.addEventListener("change", renderCatalog);
+  renderCatalog();
 }
