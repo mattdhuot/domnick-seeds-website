@@ -232,17 +232,43 @@
             sampling, spraying, scripting, or chemistry needs for the season.
           </p>
         </div>
-        <div class="contact-card">
-          <a href="tel:+13205894021">Call: 320-589-4021</a>
-          <a href="mailto:tony@domnickseeds.com">tony@domnickseeds.com</a>
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=26312%20500th%20Ave%20Morris%2C%20MN%2056267"
-            target="_blank"
-            rel="noreferrer"
+        <div class="contact-box">
+          <form
+            class="contact-form"
+            action="mailto:matt@domnickseeds.com"
+            method="post"
+            enctype="text/plain"
           >
-            26312 500th Ave, Morris, MN 56267
-          </a>
-          <span>Serving local growers from planning to harvest</span>
+            <label>
+              Name
+              <input name="name" type="text" autocomplete="name" required />
+            </label>
+            <label>
+              Email
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+            <label>
+              Phone
+              <input name="phone" type="tel" autocomplete="tel" />
+            </label>
+            <label>
+              Message
+              <textarea name="message" rows="5" required></textarea>
+            </label>
+            <button class="button primary" type="submit">Send Message</button>
+          </form>
+          <div class="contact-card">
+            <a href="tel:+13205894021">Call: 320-589-4021</a>
+            <a href="mailto:matt@domnickseeds.com">matt@domnickseeds.com</a>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=26312%20500th%20Ave%20Morris%2C%20MN%2056267"
+              target="_blank"
+              rel="noreferrer"
+            >
+              26312 500th Ave, Morris, MN 56267
+            </a>
+            <span>Serving local growers from planning to harvest</span>
+          </div>
         </div>
       </section>
     </main>
