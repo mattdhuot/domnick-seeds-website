@@ -112,6 +112,7 @@ const hybridProducts = [
   hybrid({
     name: "DKC094-51",
     rm: 94,
+    image: "assets/dkc094-51.webp",
     placements: allPlacements,
     highlighted: true,
     fungicide: "MOD",
