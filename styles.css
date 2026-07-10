@@ -1036,6 +1036,26 @@ h3 {
   align-items: start;
 }
 
+.contact-logo-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  margin-top: 34px;
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 14px 34px rgba(44, 72, 25, 0.08);
+}
+
+.contact-logo-panel img {
+  width: min(100%, 360px);
+  max-height: 140px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
 .contact-box {
   display: grid;
   gap: 18px;
