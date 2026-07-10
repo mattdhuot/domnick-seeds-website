@@ -1,50 +1,50 @@
 const allPlacements = ["corn-on-corn", "early-planting", "productive", "variable-drought", "irrigated", "sugarbeets"];
 
-const catalogNotes = {
-  "DKC084-15": "Bayer catalog: strong across yield environments, early flowering for the 85 RM zone, excellent drydown, emergence, and vigor.",
-  "DKC086-66": "Bayer catalog: strong yield potential for RM with excellent test weight, emergence, early vigor, and northern disease tolerance.",
-  "DKC087-97": "Bayer catalog: strong yield potential, excellent vigor and emergence, drought stress tolerance, and strong root/stalk profile.",
-  "DKC088-39": "Bayer catalog: strong yield potential across tested levels with above-average emergence, early vigor, flexible population use, and northern/western movement.",
-  "DKC091-43": "Bayer catalog: stable in medium-to-high yield environments with strong emergence, early vigor, excellent roots, and medium-high population response.",
-  "DKC091-44": "Bayer catalog: stable medium-to-high yield fit with strong emergence, early vigor, excellent root anchoring, and medium-high population response.",
-  "DKC092-13": "Bayer catalog: broadly adapted early-90s product with flex ear, excellent emergence/vigor, and solid root and stalk strength.",
-  "DKC092-14": "Bayer catalog: similar broad early-90s adaptation with flex ear, excellent emergence/vigor, and solid roots and stalks.",
-  "DKC094-51": "Bayer catalog: broad-acre performance, northward movement, excellent emergence and early vigor, strong disease tolerance, staygreen, and good drydown.",
-  "DKC094-67": "Bayer catalog: strong yield potential across environments with root/stalk strength, early-season emergence, early-planting fit, high population management, and heat/drought tolerance.",
-  "DKC094-78": "Bayer catalog: strong 90-to-early-95 RM yield potential, grain quality, test weight, disease tolerance, and population flexibility.",
-  "DKC095-57": "Bayer catalog: offensive yield product with management response to fertility/fungicide, good drydown, and very strong early vigor.",
-  "DKC096-21": "Bayer catalog: strong stress package with roots, stalks, greensnap tolerance, Goss's Wilt tolerance, and western placement potential.",
-  "DKC096-96": "Bayer catalog: VT4PRO product with strong yield potential, excellent roots/stalks, late-season appearance, semi-flex ears, and drydown.",
-  "DKC096-97": "Bayer catalog: Trecepta product with strong yield potential, excellent roots/stalks, late-season appearance, semi-flex ears, and drydown.",
-  "DKC097-37": "Bayer catalog: SmartStax PRO product with yield versatility, flexible planting timing, strong roots/stalks, greensnap tolerance, and broad disease package.",
-  "DKC097-51": "Bayer catalog: versatile yield product with medium-low ear placement, upright canopy, heat/drought tolerance, and medium population recommendation.",
-  "DKC098-88": "Bayer catalog: broad east-west placement with very good emergence/vigor, defensive agronomics, strong roots, greensnap tolerance, and disease package.",
-  "DKC098-98": "Bayer catalog: SmartStax PRO product with heat/drought stressed performance and season-long agronomics.",
-  "DKC099-11": "Bayer catalog: good emergence/vigor, staygreen, late-season appearance, broad adaptation, and drought stress tolerance.",
-  "DKC099-59": "Bayer catalog: strong yield potential, cold-stress emergence, balanced stature, loose husk, and medium population fit.",
-  "DKC100-21": "Bayer catalog: versatile broad-acre placement with strong emergence/vigor, roots/stalks, medium-population performance, and fungicide benefit under disease pressure.",
-  "DKC100-53": "Bayer catalog: SmartStax PRO product with elite performance across soil and management types, strong emergence/vigor, roots, stalks, greensnap, and stress tolerance.",
-  "DKC100-70": "Bayer catalog: Trecepta 100 RM product with strong yield potential, emergence/vigor, roots/stalks, semi-flex placement, and heat/drought tolerance.",
-  "DKC101-33": "Bayer catalog: stable yield across environments with good emergence, early growth, disease tolerance, and population-flexible semi-flex ear.",
-  "DKC101-35": "Bayer catalog: stable yield across environments with good emergence, early growth, strong northern disease tolerance, and flexible semi-flex ear.",
-  "DKC102-13": "Bayer catalog: excellent emergence/vigor, strong northern disease tolerance, solid roots/stalks, and attractive plant stature.",
-  "DKC102-18": "Bayer catalog: broad soil and management versatility with strong roots/stalks, greensnap tolerance, Goss's Wilt and NCLB tolerance, and medium-to-low population fit.",
-  "DKC102-28": "Bayer catalog: strong agronomic package, roots/stalks, greensnap, late-season appearance, drought tolerance, and medium-high population fit.",
-  "DKC103-63": "Bayer catalog: strong stalks and excellent roots, medium population fit, strong emergence/vigor, grain quality, and fungal disease tolerance.",
-  "DKC104-08": "Bayer catalog: broad yield adaptation, greensnap and Goss's Wilt tolerance, western fit, and VT4PRO above-ground/rootworm protection.",
-  "DKC104-14": "Bayer catalog: stable yield across environments with excellent emergence, strong vigor, roots/stalks, Goss's Wilt, and greensnap tolerance.",
-  "DKC104-32": "Bayer catalog: central-to-east product with strong 105 RM yield potential, semi-flex ear, stalk strength, greensnap, and heat/drought stability.",
-  "DKC105-21": "Bayer catalog: broad-acre versatility and stability with roots/stalks, greensnap, grain quality, test weight, emergence, and early vigor.",
-  "DKC106-98": "Bayer catalog: yield potential, stress tolerance, southern movement, fungal disease package, root strength, and greensnap tolerance.",
-  "DKC107-11": "Bayer catalog: broad-acre product with yield potential, staygreen, Goss's Wilt and Tar Spot tolerance, and drought stress tolerance.",
-  "DKC107-69": "Bayer catalog: stable yield across levels with strong yield-to-moisture ratio, roots/stalks, greensnap, and density response.",
-  "DKC108-64": "Bayer catalog: broad-acre yield product with semi-flex ear, early harvest management, roots, stalks, and greensnap tolerance.",
-  "DKC108-87": "Bayer catalog: SmartStax PRO product with western movement, emergence/vigor, Goss's Wilt and Anthracnose tolerance, and medium population fit.",
-  "DKC109-71": "Bayer catalog: strong yield potential with medium-to-medium-high population recommendation and greensnap tolerance.",
-  "DKC110-10": "Bayer catalog: broad adaptation with yield potential, staygreen, roots/stalks, greensnap, and average emergence/vigor.",
-  "DKC110-15": "Bayer catalog: SmartStax PRO product with broad-acre versatility, strong stalks, roots, greensnap, and medium population response.",
-  "DKC110-82": "Bayer catalog: broad-acre product with strong yield potential, disease tolerance, east-west movement, and average-population semi-flex ear.",
-  "DKC111-61": "Bayer catalog: yield potential, attractive appearance, excellent roots, very good stalk strength, fungicide response, and medium-to-high population fit.",
+const productNotes = {
+  "DKC084-15": "Bayer note: strong across yield environments, early flowering for the 85 RM zone, excellent drydown, emergence, and vigor.",
+  "DKC086-66": "Bayer note: strong yield potential for RM with excellent test weight, emergence, early vigor, and northern disease tolerance.",
+  "DKC087-97": "Bayer note: strong yield potential, excellent vigor and emergence, drought stress tolerance, and strong root/stalk profile.",
+  "DKC088-39": "Bayer note: strong yield potential across tested levels with above-average emergence, early vigor, flexible population use, and northern/western movement.",
+  "DKC091-43": "Bayer note: stable in medium-to-high yield environments with strong emergence, early vigor, excellent roots, and medium-high population response.",
+  "DKC091-44": "Bayer note: stable medium-to-high yield fit with strong emergence, early vigor, excellent root anchoring, and medium-high population response.",
+  "DKC092-13": "Bayer note: broadly adapted early-90s product with flex ear, excellent emergence/vigor, and solid root and stalk strength.",
+  "DKC092-14": "Bayer note: similar broad early-90s adaptation with flex ear, excellent emergence/vigor, and solid roots and stalks.",
+  "DKC094-51": "Bayer note: broad-acre performance, northward movement, excellent emergence and early vigor, strong disease tolerance, staygreen, and good drydown.",
+  "DKC094-67": "Bayer note: strong yield potential across environments with root/stalk strength, early-season emergence, early-planting fit, high population management, and heat/drought tolerance.",
+  "DKC094-78": "Bayer note: strong 90-to-early-95 RM yield potential, grain quality, test weight, disease tolerance, and population flexibility.",
+  "DKC095-57": "Bayer note: offensive yield product with management response to fertility/fungicide, good drydown, and very strong early vigor.",
+  "DKC096-21": "Bayer note: strong stress package with roots, stalks, greensnap tolerance, Goss's Wilt tolerance, and western placement potential.",
+  "DKC096-96": "Bayer note: VT4PRO product with strong yield potential, excellent roots/stalks, late-season appearance, semi-flex ears, and drydown.",
+  "DKC096-97": "Bayer note: Trecepta product with strong yield potential, excellent roots/stalks, late-season appearance, semi-flex ears, and drydown.",
+  "DKC097-37": "Bayer note: SmartStax PRO product with yield versatility, flexible planting timing, strong roots/stalks, greensnap tolerance, and broad disease package.",
+  "DKC097-51": "Bayer note: versatile yield product with medium-low ear placement, upright canopy, heat/drought tolerance, and medium population recommendation.",
+  "DKC098-88": "Bayer note: broad east-west placement with very good emergence/vigor, defensive agronomics, strong roots, greensnap tolerance, and disease package.",
+  "DKC098-98": "Bayer note: SmartStax PRO product with heat/drought stressed performance and season-long agronomics.",
+  "DKC099-11": "Bayer note: good emergence/vigor, staygreen, late-season appearance, broad adaptation, and drought stress tolerance.",
+  "DKC099-59": "Bayer note: strong yield potential, cold-stress emergence, balanced stature, loose husk, and medium population fit.",
+  "DKC100-21": "Bayer note: versatile broad-acre placement with strong emergence/vigor, roots/stalks, medium-population performance, and fungicide benefit under disease pressure.",
+  "DKC100-53": "Bayer note: SmartStax PRO product with elite performance across soil and management types, strong emergence/vigor, roots, stalks, greensnap, and stress tolerance.",
+  "DKC100-70": "Bayer note: Trecepta 100 RM product with strong yield potential, emergence/vigor, roots/stalks, semi-flex placement, and heat/drought tolerance.",
+  "DKC101-33": "Bayer note: stable yield across environments with good emergence, early growth, disease tolerance, and population-flexible semi-flex ear.",
+  "DKC101-35": "Bayer note: stable yield across environments with good emergence, early growth, strong northern disease tolerance, and flexible semi-flex ear.",
+  "DKC102-13": "Bayer note: excellent emergence/vigor, strong northern disease tolerance, solid roots/stalks, and attractive plant stature.",
+  "DKC102-18": "Bayer note: broad soil and management versatility with strong roots/stalks, greensnap tolerance, Goss's Wilt and NCLB tolerance, and medium-to-low population fit.",
+  "DKC102-28": "Bayer note: strong agronomic package, roots/stalks, greensnap, late-season appearance, drought tolerance, and medium-high population fit.",
+  "DKC103-63": "Bayer note: strong stalks and excellent roots, medium population fit, strong emergence/vigor, grain quality, and fungal disease tolerance.",
+  "DKC104-08": "Bayer note: broad yield adaptation, greensnap and Goss's Wilt tolerance, western fit, and VT4PRO above-ground/rootworm protection.",
+  "DKC104-14": "Bayer note: stable yield across environments with excellent emergence, strong vigor, roots/stalks, Goss's Wilt, and greensnap tolerance.",
+  "DKC104-32": "Bayer note: central-to-east product with strong 105 RM yield potential, semi-flex ear, stalk strength, greensnap, and heat/drought stability.",
+  "DKC105-21": "Bayer note: broad-acre versatility and stability with roots/stalks, greensnap, grain quality, test weight, emergence, and early vigor.",
+  "DKC106-98": "Bayer note: yield potential, stress tolerance, southern movement, fungal disease package, root strength, and greensnap tolerance.",
+  "DKC107-11": "Bayer note: broad-acre product with yield potential, staygreen, Goss's Wilt and Tar Spot tolerance, and drought stress tolerance.",
+  "DKC107-69": "Bayer note: stable yield across levels with strong yield-to-moisture ratio, roots/stalks, greensnap, and density response.",
+  "DKC108-64": "Bayer note: broad-acre yield product with semi-flex ear, early harvest management, roots, stalks, and greensnap tolerance.",
+  "DKC108-87": "Bayer note: SmartStax PRO product with western movement, emergence/vigor, Goss's Wilt and Anthracnose tolerance, and medium population fit.",
+  "DKC109-71": "Bayer note: strong yield potential with medium-to-medium-high population recommendation and greensnap tolerance.",
+  "DKC110-10": "Bayer note: broad adaptation with yield potential, staygreen, roots/stalks, greensnap, and average emergence/vigor.",
+  "DKC110-15": "Bayer note: SmartStax PRO product with broad-acre versatility, strong stalks, roots, greensnap, and medium population response.",
+  "DKC110-82": "Bayer note: broad-acre product with strong yield potential, disease tolerance, east-west movement, and average-population semi-flex ear.",
+  "DKC111-61": "Bayer note: yield potential, attractive appearance, excellent roots, very good stalk strength, fungicide response, and medium-to-high population fit.",
 };
 
 const bagImages = {
@@ -131,7 +131,7 @@ function hybrid({
     fungicide,
     strengths: strengths || [placements.includes("productive") ? "productive soil fit" : "supporting placement", `${rm} RM option`],
     watch: watch || `${rm} RM product visible in the uploaded DEKALB placement, characteristics, or fungicide charts; confirm local ratings and availability before final placement.`,
-    catalogNote: catalogNotes[name] || "",
+    productNote: productNotes[name] || "",
     image: bayerBagByHybrid[name] || image || bagImages.fallback,
   };
 }
@@ -312,104 +312,8 @@ const scenarioLabels = {
   sugarbeets: "following sugarbeets",
 };
 
-const catalogForm = document.querySelector("#hybridCatalogFilters");
-const catalogGrid = document.querySelector("#hybridCatalogGrid");
-const catalogCount = document.querySelector("#hybridCatalogCount");
 const profileBook = document.querySelector("#seedProfileBook");
 const profileBookCount = document.querySelector("#seedProfileBookCount");
-
-function getCatalogFilters() {
-  const formData = new FormData(catalogForm);
-  return {
-    search: String(formData.get("search") || "").trim().toLowerCase(),
-    maturity: formData.get("maturity"),
-    trait: formData.get("trait"),
-    placement: formData.get("placement"),
-  };
-}
-
-function inMaturityWindow(hybrid, maturity) {
-  if (maturity === "focus") return hybrid.rm >= 85 && hybrid.rm <= 106;
-  if (maturity === "early") return hybrid.rm <= 91;
-  if (maturity === "mid") return hybrid.rm >= 92 && hybrid.rm <= 99;
-  if (maturity === "full") return hybrid.rm >= 100 && hybrid.rm <= 106;
-  if (maturity === "extended") return hybrid.rm > 106;
-  return true;
-}
-
-function filterCatalog() {
-  const filters = getCatalogFilters();
-  return hybridProducts
-    .filter((hybrid) => {
-      const haystack = [hybrid.name, hybrid.rm, hybrid.trait, hybrid.catalogNote, hybrid.watch].join(" ").toLowerCase();
-      if (filters.search && !haystack.includes(filters.search)) return false;
-      if (!inMaturityWindow(hybrid, filters.maturity)) return false;
-      if (filters.trait !== "all" && hybrid.traitGroup !== filters.trait) return false;
-      if (filters.placement !== "all" && !hybrid.placements.includes(filters.placement)) return false;
-      return true;
-    })
-    .sort((a, b) => a.rm - b.rm || a.name.localeCompare(b.name));
-}
-
-function placementTags(hybrid) {
-  return hybrid.placements
-    .map((placement) => `<span>${scenarioLabels[placement]}</span>`)
-    .join("");
-}
-
-function renderCatalog() {
-  const hybrids = filterCatalog();
-  catalogCount.textContent = `${hybrids.length} hybrids shown`;
-
-  if (!hybrids.length) {
-    catalogGrid.innerHTML = `
-      <article class="catalog-empty">
-        <h3>No hybrids match those filters.</h3>
-        <p>Clear a filter or search another DKC number to bring products back into view.</p>
-      </article>
-    `;
-    return;
-  }
-
-  catalogGrid.innerHTML = hybrids
-    .map(
-      (hybrid) => `
-        <article class="hybrid-catalog-card">
-          <div class="hybrid-card-image">
-            <img src="${hybrid.image}" alt="${hybrid.name} DEKALB seed bag" loading="lazy" />
-          </div>
-          <div class="hybrid-card-topline">
-            <span>${hybrid.highlighted ? "Highlighted fit" : "Catalog hybrid"}</span>
-            <strong>${hybrid.rm} RM</strong>
-          </div>
-          <h3>${hybrid.name}</h3>
-          <p class="hybrid-platform">${hybrid.trait}</p>
-          <div class="hybrid-tags" aria-label="${hybrid.name} placement fits">
-            ${placementTags(hybrid)}
-          </div>
-          <dl class="hybrid-details">
-            <div>
-              <dt>Fungicide response</dt>
-              <dd>${hybrid.fungicide}</dd>
-            </div>
-            <div>
-              <dt>Key fit</dt>
-              <dd>${hybrid.strengths.slice(0, 3).join(", ")}</dd>
-            </div>
-          </dl>
-          ${hybrid.catalogNote ? `<p>${hybrid.catalogNote}</p>` : ""}
-          <small>${hybrid.watch}</small>
-        </article>
-      `
-    )
-    .join("");
-}
-
-if (catalogForm && catalogGrid) {
-  catalogForm.addEventListener("input", renderCatalog);
-  catalogForm.addEventListener("change", renderCatalog);
-  renderCatalog();
-}
 
 function renderSeedProfileBook() {
   const sortedHybrids = [...hybridProducts].sort((a, b) => a.rm - b.rm || a.name.localeCompare(b.name));
@@ -443,7 +347,7 @@ function renderSeedProfileBook() {
               <dd>${hybrid.strengths.join(", ")}</dd>
             </div>
           </dl>
-          ${hybrid.catalogNote ? `<p>${hybrid.catalogNote}</p>` : ""}
+          ${hybrid.productNote ? `<p>${hybrid.productNote}</p>` : ""}
           <small>${hybrid.watch}</small>
         </article>
       `
@@ -458,3 +362,4 @@ document.querySelectorAll(".print-button").forEach((button) => {
 if (profileBook && profileBookCount) {
   renderSeedProfileBook();
 }
+
