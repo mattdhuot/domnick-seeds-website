@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 150" role="img" aria-labelledby="title">
+  <title id="title">Pivot Bio logo badge</title>
+  <rect width="360" height="150" rx="18" fill="#102f2a"/>
+  <path d="M72 104c-16-36-5-70 34-89 27 35 16 70-34 89z" fill="#71bf44"/>
+  <path d="M88 104c25-45 62-61 111-49-17 45-54 61-111 49z" fill="#41a85f"/>
+  <text x="225" y="69" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#ffffff">PIVOT BIO</text>
+  <text x="225" y="101" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#a8dc75">BIOLOGICAL NITROGEN</text>
+</svg>

@@ -604,6 +604,7 @@ h3 {
   display: grid;
   place-items: center;
   min-height: 190px;
+  overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -613,7 +614,8 @@ h3 {
   width: 100%;
   height: 175px;
   object-fit: contain;
-  padding: 8px;
+  padding: 0;
+  transform: scale(1.16);
 }
 
 .seed-profile-header {
@@ -714,11 +716,21 @@ h3 {
 }
 
 .offering-list article {
+  display: grid;
+  align-content: start;
+  gap: 14px;
   min-height: 210px;
   padding: 24px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 8px;
+}
+
+.offering-list img {
+  width: 100%;
+  max-width: 210px;
+  height: 82px;
+  object-fit: contain;
 }
 
 .offering-list p {

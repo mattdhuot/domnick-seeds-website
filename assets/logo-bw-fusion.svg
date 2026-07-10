@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 150" role="img" aria-labelledby="title">
+  <title id="title">BW Fusion logo badge</title>
+  <rect width="360" height="150" rx="18" fill="#163821"/>
+  <path d="M32 112c38-46 87-68 148-65 55 3 103 24 148 64" fill="none" stroke="#70b64b" stroke-width="12" stroke-linecap="round"/>
+  <text x="180" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="800" fill="#ffffff">BW FUSION</text>
+  <text x="180" y="103" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#f2c84b">CROP NUTRITION</text>
+</svg>
