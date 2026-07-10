@@ -598,9 +598,20 @@ h3 {
 }
 
 .advice-grid a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-top: auto;
+  min-height: 44px;
+  padding: 0 16px;
   color: var(--leaf-dark);
+  background: var(--gold);
+  border-radius: 8px;
   font-weight: 900;
+}
+
+.advice-grid a:hover {
+  background: #ffd65c;
 }
 
 .family-owned {
