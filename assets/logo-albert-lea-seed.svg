@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 150" role="img" aria-labelledby="title">
-  <title id="title">Albert Lea Seed logo badge</title>
-  <rect width="360" height="150" rx="18" fill="#f6f0df"/>
-  <circle cx="68" cy="75" r="37" fill="#2f5d38"/>
-  <path d="M50 83c19-37 42-52 69-47-11 31-34 47-69 47z" fill="#f2c84b"/>
-  <text x="214" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#2f5d38">ALBERT LEA</text>
-  <text x="214" y="104" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="800" fill="#2f5d38">SEED</text>
-</svg>
