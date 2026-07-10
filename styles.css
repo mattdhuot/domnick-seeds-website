@@ -168,8 +168,8 @@ a {
 
 .about-hero {
   background:
-    linear-gradient(90deg, rgba(44, 72, 25, 0.9), rgba(44, 72, 25, 0.32)),
-    url("assets/domnick-farm-aerial.jpg");
+    linear-gradient(90deg, rgba(44, 72, 25, 0.9), rgba(44, 72, 25, 0.26)),
+    url("assets/about-hero-sunset-plot.jpg");
   background-position: center;
   background-size: cover;
 }
