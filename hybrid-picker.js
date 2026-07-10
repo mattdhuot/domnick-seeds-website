@@ -315,6 +315,8 @@ const scenarioLabels = {
 const catalogForm = document.querySelector("#hybridCatalogFilters");
 const catalogGrid = document.querySelector("#hybridCatalogGrid");
 const catalogCount = document.querySelector("#hybridCatalogCount");
+const profileBook = document.querySelector("#seedProfileBook");
+const profileBookCount = document.querySelector("#seedProfileBookCount");
 
 function getCatalogFilters() {
   const formData = new FormData(catalogForm);
@@ -407,4 +409,52 @@ if (catalogForm && catalogGrid) {
   catalogForm.addEventListener("input", renderCatalog);
   catalogForm.addEventListener("change", renderCatalog);
   renderCatalog();
+}
+
+function renderSeedProfileBook() {
+  const sortedHybrids = [...hybridProducts].sort((a, b) => a.rm - b.rm || a.name.localeCompare(b.name));
+  profileBookCount.textContent = `${sortedHybrids.length} hybrid profiles`;
+  profileBook.innerHTML = sortedHybrids
+    .map(
+      (hybrid) => `
+        <article class="seed-profile-card">
+          <div class="seed-profile-image">
+            <img src="${hybrid.image}" alt="${hybrid.name} DEKALB seed bag" loading="lazy" />
+          </div>
+          <div class="seed-profile-header">
+            <div>
+              <span>${hybrid.rm} RM</span>
+              <h2>${hybrid.name}</h2>
+            </div>
+            <strong>${hybrid.highlighted ? "Highlighted" : "Listed"}</strong>
+          </div>
+          <p class="seed-profile-platform">${hybrid.trait}</p>
+          <dl class="seed-profile-facts">
+            <div>
+              <dt>Best fits</dt>
+              <dd>${hybrid.placements.map((placement) => scenarioLabels[placement]).join(", ")}</dd>
+            </div>
+            <div>
+              <dt>Fungicide response</dt>
+              <dd>${hybrid.fungicide}</dd>
+            </div>
+            <div>
+              <dt>Key strengths</dt>
+              <dd>${hybrid.strengths.join(", ")}</dd>
+            </div>
+          </dl>
+          ${hybrid.catalogNote ? `<p>${hybrid.catalogNote}</p>` : ""}
+          <small>${hybrid.watch}</small>
+        </article>
+      `
+    )
+    .join("");
+}
+
+document.querySelectorAll(".print-button").forEach((button) => {
+  button.addEventListener("click", () => window.print());
+});
+
+if (profileBook && profileBookCount) {
+  renderSeedProfileBook();
 }

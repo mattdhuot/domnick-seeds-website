@@ -158,6 +158,14 @@ a {
   border-color: rgba(255, 255, 255, 0.42);
 }
 
+.profile-book-hero {
+  background:
+    linear-gradient(90deg, rgba(44, 72, 25, 0.9), rgba(44, 72, 25, 0.34)),
+    url("assets/corn-field-check.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
 .hero-copy {
   display: flex;
   flex-direction: column;
@@ -751,6 +759,119 @@ h3 {
   color: var(--ink);
 }
 
+.profile-book-section {
+  background: var(--surface);
+}
+
+.profile-book-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 34px 0 18px;
+  padding: 16px 18px;
+  color: var(--muted);
+  font-weight: 800;
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.seed-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.seed-profile-card {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 18px;
+  min-height: 100%;
+  padding: 20px;
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 14px 34px rgba(44, 72, 25, 0.08);
+}
+
+.seed-profile-image {
+  grid-row: span 5;
+  display: grid;
+  place-items: center;
+  min-height: 190px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.seed-profile-image img {
+  width: 100%;
+  height: 175px;
+  object-fit: contain;
+  padding: 8px;
+}
+
+.seed-profile-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.seed-profile-header span,
+.seed-profile-header strong {
+  color: var(--gold-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.seed-profile-header h2 {
+  margin-bottom: 0;
+  font-size: 1.65rem;
+}
+
+.seed-profile-platform,
+.seed-profile-card p,
+.seed-profile-card dd,
+.seed-profile-card small {
+  color: var(--muted);
+}
+
+.seed-profile-platform,
+.seed-profile-card p {
+  margin-bottom: 0;
+}
+
+.seed-profile-facts {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.seed-profile-facts div {
+  display: grid;
+  gap: 3px;
+}
+
+.seed-profile-facts dt {
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.seed-profile-facts dd {
+  margin: 0;
+}
+
+.seed-profile-card small {
+  display: block;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -989,6 +1110,7 @@ h3 {
   .offering-list,
   .services-grid,
   .hybrid-catalog-grid,
+  .seed-profile-grid,
   .catalog-filters {
     grid-template-columns: 1fr 1fr;
   }
@@ -1030,8 +1152,19 @@ h3 {
   .offering-list,
   .services-grid,
   .catalog-filters,
-  .hybrid-catalog-grid {
+  .hybrid-catalog-grid,
+  .seed-profile-grid,
+  .seed-profile-card {
     grid-template-columns: 1fr;
+  }
+
+  .seed-profile-image {
+    grid-row: auto;
+  }
+
+  .profile-book-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .service-list article {
@@ -1041,5 +1174,39 @@ h3 {
   .hero-actions,
   .button {
     width: 100%;
+  }
+}
+
+@media print {
+  .site-header,
+  .page-hero,
+  .profile-book-toolbar,
+  .site-footer {
+    display: none;
+  }
+
+  body {
+    color: #111;
+    background: #fff;
+  }
+
+  .section {
+    padding: 0;
+  }
+
+  .profile-book-section .section-heading {
+    max-width: none;
+    margin-bottom: 18px;
+  }
+
+  .seed-profile-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .seed-profile-card {
+    break-inside: avoid;
+    box-shadow: none;
+    background: #fff;
   }
 }

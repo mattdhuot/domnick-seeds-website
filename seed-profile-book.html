@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Seed Profile Book | Domnick Seeds</title>
+    <meta
+      name="description"
+      content="A printable Domnick Seeds DEKALB hybrid profile book with maturity, trait platform, placement fit, fungicide response, and key product notes."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/domnick-seeds-logo.jpg" type="image/jpeg" />
+    <link rel="apple-touch-icon" href="assets/domnick-seeds-logo.jpg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html#home" aria-label="Domnick Seeds home">
+        <img src="assets/domnick-seeds-logo.jpg" alt="Domnick Seeds" />
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html#seed">Seed</a>
+        <a href="products.html#services">Service</a>
+        <a href="products.html">Catalog</a>
+        <a href="seed-profile-book.html">Profile Book</a>
+        <a href="index.html#contact">Contact Us</a>
+        <a href="index.html#hybrid-catalog">Hybrid Catalog</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Contact Us</a>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="page-hero profile-book-hero">
+        <div>
+          <p class="eyebrow">Seed profile book</p>
+          <h1>DEKALB hybrid notes in a field-ready format.</h1>
+          <p>
+            A profile page built from the same hybrid catalog data, organized for quick
+            grower conversations, field placement review, and printed reference sheets.
+          </p>
+          <div class="hero-actions">
+            <button class="button primary print-button" type="button">Print Profile Book</button>
+            <a class="button secondary" href="index.html#hybrid-catalog">Browse Catalog</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section profile-book-section">
+        <div class="section-heading compact">
+          <p class="eyebrow">Hybrid profiles</p>
+          <h2>Same catalog. More detail per hybrid.</h2>
+          <p>
+            Each profile includes maturity, trait platform, placement fits, fungicide
+            response, key strengths, and watch notes from the uploaded placement,
+            characteristics, and fungicide response information.
+          </p>
+        </div>
+
+        <div class="profile-book-toolbar">
+          <span id="seedProfileBookCount">Loading profiles</span>
+          <button class="button secondary print-button" type="button">Print</button>
+        </div>
+
+        <div class="seed-profile-grid" id="seedProfileBook"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="assets/domnick-seeds-logo.jpg" alt="Domnick Seeds" />
+      <span>&copy; <span id="year"></span> Domnick Seeds. All rights reserved.</span>
+      <a href="index.html#home">Back to top</a>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="hybrid-picker.js"></script>
+  </body>
+</html>
