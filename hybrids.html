@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hybrids | Domnick Seeds</title>
+    <title>DEKALB Corn Seed Guide | Domnick Seeds</title>
     <meta
       name="description"
-      content="Domnick Seeds DEKALB hybrid profiles with maturity, trait platform, placement fit, fungicide response, and key product notes."
+      content="A Domnick Seeds DEKALB corn seed guide with official Bayer maturity, trait package, and product strength information for 88-106 RM hybrids."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,35 +42,61 @@
       <section class="page-hero profile-book-hero">
         <div>
           <p class="eyebrow">Hybrids</p>
-          <h1>DEKALB hybrid notes in a field-ready format.</h1>
+          <h1>DEKALB Corn Seed Guide</h1>
           <p>
-            A profile page built from the hybrid data, organized for quick
-            grower conversations, field placement review, and printed reference sheets.
+            A simple field-ready guide for reviewing DEKALB corn hybrids in the
+            88-106 RM range, with official Bayer catalog information and local
+            Domnick Seeds support.
           </p>
           <div class="hero-actions">
-            <button class="button primary print-button" type="button">Print Hybrids</button>
+            <a class="button primary" href="#dekalb-guide">View Seed Guide</a>
             <a class="button secondary" href="index.html#contact">Talk Hybrids</a>
           </div>
         </div>
       </section>
 
-      <section class="section profile-book-section">
+      <section class="section profile-book-section" id="dekalb-guide">
         <div class="section-heading compact">
-          <p class="eyebrow">Hybrid profiles</p>
-          <h2>Field-ready notes by hybrid.</h2>
+          <p class="eyebrow">Official Bayer catalog data</p>
+          <h2>Find the right DEKALB fit faster.</h2>
           <p>
-            Each profile includes maturity, trait platform, placement fits, fungicide
-            response, key strengths, and watch notes from the uploaded placement,
-            characteristics, and fungicide response information.
+            Search by hybrid number, filter by maturity or trait package,
+            and scan the top three quick notes pulled from the Bayer catalog card.
           </p>
         </div>
 
-        <div class="profile-book-toolbar">
-          <span id="seedProfileBookCount">Loading profiles</span>
+        <div class="dekalb-guide-toolbar" aria-label="DEKALB seed guide filters">
+          <label>
+            <span>Search hybrid</span>
+            <input id="dekalbSearch" type="search" placeholder="DKC097-37RIB" autocomplete="off" />
+          </label>
+          <label>
+            <span>Maturity</span>
+            <select id="dekalbRmFilter">
+              <option value="">All RM</option>
+            </select>
+          </label>
+          <label>
+            <span>Trait package</span>
+            <select id="dekalbTraitFilter">
+              <option value="">All traits</option>
+            </select>
+          </label>
+          <button class="button secondary" id="dekalbClearFilters" type="button">Clear filters</button>
           <button class="button secondary print-button" type="button">Print</button>
         </div>
 
-        <div class="seed-profile-grid" id="seedProfileBook"></div>
+        <div class="dekalb-guide-summary">
+          <span id="dekalbGuideCount">Loading hybrids</span>
+          <p>
+            Product information is based on publicly available Bayer Crop Science
+            materials and is provided for general planning purposes. Product
+            ratings, traits and availability may change. Contact Domnick Seeds to
+            confirm current product information, availability and field placement.
+          </p>
+        </div>
+
+        <div class="dekalb-guide-grid" id="dekalbGuideGrid"></div>
       </section>
     </main>
 
@@ -81,6 +107,7 @@
     </footer>
 
     <script src="script.js"></script>
-    <script src="hybrid-picker.js"></script>
+    <script src="data/dekalb-products.js"></script>
+    <script src="dekalb-guide.js"></script>
   </body>
 </html>

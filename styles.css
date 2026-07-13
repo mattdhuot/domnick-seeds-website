@@ -913,6 +913,197 @@ h3 {
   border-top: 1px solid var(--line);
 }
 
+.dekalb-guide-toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.4fr) minmax(160px, 0.8fr) minmax(180px, 0.9fr) auto auto;
+  gap: 14px;
+  align-items: end;
+  margin: 34px 0 20px;
+  padding: 18px;
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.dekalb-guide-toolbar label {
+  display: grid;
+  gap: 7px;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.dekalb-guide-toolbar input,
+.dekalb-guide-toolbar select {
+  min-height: 48px;
+  width: 100%;
+  padding: 0 12px;
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+  text-transform: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.dekalb-guide-summary {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 22px;
+  color: var(--muted);
+}
+
+.dekalb-guide-summary span {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.dekalb-guide-summary p {
+  max-width: 980px;
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
+
+.dekalb-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.dekalb-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 14px 34px rgba(44, 72, 25, 0.08);
+}
+
+.dekalb-card-image {
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+  padding: 16px;
+  background: linear-gradient(180deg, #ffffff, #f5f7ef);
+  border-bottom: 1px solid var(--line);
+}
+
+.dekalb-card-image img {
+  width: min(210px, 100%);
+  height: 210px;
+  object-fit: contain;
+  transform: scale(1.1);
+}
+
+.dekalb-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+}
+
+.dekalb-card-topline,
+.dekalb-card-title,
+.dekalb-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.dekalb-card-topline span,
+.dekalb-card-topline strong {
+  color: var(--gold-dark);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.dekalb-card-topline strong {
+  padding: 5px 9px;
+  color: var(--leaf-dark);
+  background: var(--gold);
+  border-radius: 999px;
+}
+
+.dekalb-card-title {
+  align-items: flex-start;
+}
+
+.dekalb-card-title h2 {
+  margin-bottom: 0;
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.dekalb-rm {
+  display: grid;
+  justify-items: center;
+  min-width: 62px;
+  padding: 8px;
+  color: var(--leaf-dark);
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.dekalb-rm span {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 0.95;
+}
+
+.dekalb-rm small {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.dekalb-card ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.dekalb-card li strong {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.dekalb-card-actions {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.dekalb-card-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 14px;
+  color: var(--leaf-dark);
+  font-weight: 900;
+  background: var(--gold);
+  border-radius: 8px;
+}
+
+.dekalb-card-actions a:hover {
+  background: #ffd65c;
+}
+
+.dekalb-card-actions small {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1217,7 +1408,12 @@ h3 {
   .offering-grid,
   .services-grid,
   .team-grid,
+  .dekalb-guide-grid,
   .seed-profile-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dekalb-guide-toolbar {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -1262,6 +1458,8 @@ h3 {
   .offering-grid,
   .services-grid,
   .team-grid,
+  .dekalb-guide-grid,
+  .dekalb-guide-toolbar,
   .seed-profile-grid,
   .seed-profile-card {
     grid-template-columns: 1fr;
@@ -1281,6 +1479,11 @@ h3 {
   }
 
   .profile-book-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dekalb-card-actions {
     align-items: flex-start;
     flex-direction: column;
   }
@@ -1313,6 +1516,7 @@ h3 {
   .site-header,
   .page-hero,
   .profile-book-toolbar,
+  .dekalb-guide-toolbar,
   .site-footer {
     display: none;
   }
@@ -1336,7 +1540,13 @@ h3 {
     gap: 12px;
   }
 
-  .seed-profile-card {
+  .dekalb-guide-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .seed-profile-card,
+  .dekalb-card {
     break-inside: avoid;
     box-shadow: none;
     background: #fff;
