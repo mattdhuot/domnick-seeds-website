@@ -1,6 +1,6 @@
 const products = Array.isArray(window.DEKALB_PRODUCTS) ? window.DEKALB_PRODUCTS : [];
 const guideProducts = products.filter(
-  (product) => product.relativeMaturity >= 88 && product.relativeMaturity <= 106
+  (product) => product.relativeMaturity >= 92 && product.relativeMaturity <= 106
 );
 
 const grid = document.querySelector("#dekalbGuideGrid");
@@ -186,7 +186,6 @@ function renderCard(product) {
         <ul>${listItems}</ul>
         <div class="dekalb-card-actions">
           <a href="${product.sourceUrl}" target="_blank" rel="noreferrer">Learn more</a>
-          <small>Reviewed ${product.reviewedDate}</small>
         </div>
       </div>
     </article>
