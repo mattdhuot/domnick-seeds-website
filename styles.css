@@ -166,6 +166,18 @@ a {
   background-size: cover;
 }
 
+.dekalb-local-hero {
+  background:
+    linear-gradient(90deg, rgba(44, 72, 25, 0.92), rgba(44, 72, 25, 0.26)),
+    url("assets/corn-field-check.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.dekalb-local-hero h1 {
+  max-width: 14ch;
+}
+
 .about-hero {
   background:
     linear-gradient(90deg, rgba(44, 72, 25, 0.9), rgba(44, 72, 25, 0.26)),
@@ -280,6 +292,15 @@ h3 {
 .button.light {
   color: var(--leaf-dark);
   background: var(--gold);
+}
+
+.text-link {
+  color: var(--leaf-dark);
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
 }
 
 .hero-panel {
@@ -633,6 +654,74 @@ h3 {
 
 .advice-grid a:hover {
   background: #ffd65c;
+}
+
+.advice-grid p a.inline-card-link {
+  display: inline;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  color: var(--leaf-dark);
+  background: transparent;
+  border-radius: 0;
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+
+.advice-grid p a.inline-card-link:hover {
+  color: var(--ink);
+  background: transparent;
+}
+
+.seo-copy-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.05fr);
+  gap: 18px;
+  background: var(--surface);
+}
+
+.seo-card {
+  padding: 30px;
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.seo-card h2 {
+  max-width: 680px;
+  font-size: clamp(2.2rem, 4.6vw, 4.2rem);
+}
+
+.seo-card p {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.check-list {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 26px;
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+.check-list li::marker {
+  color: var(--gold-dark);
+}
+
+.local-disclaimer {
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+
+.local-disclaimer p {
+  max-width: 960px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 
 .family-owned {
@@ -1415,7 +1504,8 @@ h3 {
   .split,
   .about-story,
   .family-owned,
-  .contact {
+  .contact,
+  .seo-copy-grid {
     grid-template-columns: 1fr;
   }
 
